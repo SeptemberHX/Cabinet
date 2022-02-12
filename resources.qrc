@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/page">
+        <file alias="index.html">resource/index.html</file>
+        <file alias="3rdparty/markdown.css">resource/3rdparty/markdown.css</file>
+        <file alias="3rdparty/marked.js">resource/3rdparty/marked.js</file>
+    </qresource>
+</RCC>

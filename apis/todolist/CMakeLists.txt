@@ -14,7 +14,7 @@ set(CMAKE_PREFIX_PATH "/Users/septemberhx/Qt/6.2.3/macos/lib/cmake")
 # generate a compile commands file as complete database for vim-YouCompleteMe or some other similar tools
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-find_package(Qt6 COMPONENTS Core WebEngineWidgets REQUIRED)
+find_package(Qt6 COMPONENTS Core WebEngineWidgets WebSockets REQUIRED)
 
 set(SRCS
         "dida365/DiDa365Tools.cpp"
@@ -25,4 +25,4 @@ set(SRCS
 
 add_library(${PROJECT_NAME} STATIC ${SRCS})
 
-target_link_libraries(${PROJECT_NAME} Qt6::Core Qt6::WebEngineWidgets)
+target_link_libraries(${PROJECT_NAME} Qt6::Core Qt6::WebEngineWidgets Qt6::WebSockets)

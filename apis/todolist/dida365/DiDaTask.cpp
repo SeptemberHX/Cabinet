@@ -266,3 +266,11 @@ void DiDaTask::setKind(const QString &kind) {
 DiDaTask::~DiDaTask() {
 
 }
+
+const std::optional<QDateTime> &DiDaTask::getStartDate() const {
+    return startDate;
+}
+
+const std::optional<QDateTime> &DiDaTask::getDueDate() const {
+    return dueDate;
+}

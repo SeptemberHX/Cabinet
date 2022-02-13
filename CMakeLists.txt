@@ -17,17 +17,16 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 find_package(Qt6 COMPONENTS Widgets Core WebEngineWidgets REQUIRED)
 
-file(GLOB_RECURSE SRCS
+set(SRCS
         "mainwindow.h"
         "main.cpp" "mainwindow.cpp"
-        "items/*.cpp"
-        "items/*.h"
-        "widgets/*.cpp"
-        "widgets/*.h"
+        "items/PreviewMDDoc.h" "items/PreviewMDDoc.cpp"
+        "widgets/PreviewPage.h" "widgets/PreviewPage.cpp"
+        "widgets/CabinetMainWidget.h" "widgets/CabinetMainWidget.cpp" "widgets/CabinetMainWidget.ui"
+        "widgets/FileListWidget.h" "widgets/FileListWidget.cpp" "widgets/FileListWidget.ui"
         resources.qrc
-        "widgets/*.ui"
-        "widgets/todo/*.cpp"
-        "widgets/todo/*.h")
+        "widgets/todo/TodoPage.h" "widgets/todo/TodoPage.cpp" "widgets/todo/TodoPage.ui"
+        "widgets/todo/TodoItemWidget.h" "widgets/todo/TodoItemWidget.cpp" "widgets/todo/TodoItemWidget.ui" CabinetSettings.cpp CabinetSettings.h)
 
 add_executable(${PROJECT_NAME} ${SRCS})
 

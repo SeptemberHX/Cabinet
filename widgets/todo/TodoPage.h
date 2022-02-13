@@ -2,6 +2,10 @@
 #define TODOPAGE_H
 
 #include <QWidget>
+#include <QList>
+#include "TodoItemWidget.h"
+#include "apis/todolist/dida365/DiDa365Tools.h"
+
 
 namespace Ui {
 class TodoPage;
@@ -17,6 +21,10 @@ public:
 
 private:
     Ui::TodoPage *ui;
+    QList<TodoItem> todoItems;
+    DiDa365Tools *diDa365Tools;
+
+    void loadTodoItems(const QList<TodoItem> &todoItems);
 };
 
 #endif // TODOPAGE_H

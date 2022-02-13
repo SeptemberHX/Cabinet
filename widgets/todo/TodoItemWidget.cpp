@@ -12,3 +12,12 @@ TodoItemWidget::~TodoItemWidget()
 {
     delete ui;
 }
+
+void TodoItemWidget::setTodoItem(const TodoItem &item) {
+    this->todoItem = item;
+
+    ui->checkBox->setText(item.getTitle());
+    if (item.getStartDate()) {
+        ui->label->setText(item.getStartDate()->date().toString());
+    }
+}

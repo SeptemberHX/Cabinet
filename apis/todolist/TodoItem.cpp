@@ -10,3 +10,15 @@ const QString &TodoItem::getId() const {
 
 TodoItem::TodoItem(const QString &id, const QString &title, int priority, QDateTime startDate)
     : id(id), title(title), priority(priority), startDate(startDate) {}
+
+const QString &TodoItem::getTitle() const {
+    return title;
+}
+
+int TodoItem::getPriority() const {
+    return priority;
+}
+
+const std::optional<QDateTime> &TodoItem::getStartDate() const {
+    return startDate;
+}

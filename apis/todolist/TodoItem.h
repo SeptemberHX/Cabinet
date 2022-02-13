@@ -15,6 +15,12 @@ public:
 
     const QString &getId() const;
 
+    const QString &getTitle() const;
+
+    int getPriority() const;
+
+    const std::optional<QDateTime> &getStartDate() const;
+
 private:
     QString id;
     QString title;

@@ -132,6 +132,10 @@ public:
 
     virtual ~DiDaTask();
 
+    const std::optional<QDateTime> &getStartDate() const;
+
+    const std::optional<QDateTime> &getDueDate() const;
+
 private:
 
     QString id;

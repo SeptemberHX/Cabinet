@@ -3,6 +3,7 @@
 #include <QApplication>
 #include <QLocale>
 #include <QTranslator>
+#include "CabinetSettings.h"
 
 int main(int argc, char *argv[])
 {

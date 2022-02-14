@@ -9,7 +9,7 @@
 DiDaReminder::DiDaReminder(const QString &id, const QString &trigger) : id(id), trigger(trigger) {}
 
 TodoItem DiDaTask::convertItem() {
-    return TodoItem(this->id, this->title, this->priority, *(this->startDate));
+    return TodoItem(this->id, this->title, this->priority, this->startDate.value());
 }
 
 DiDaTask DiDaTask::fromJson(const QJsonObject &jsonObj) {
@@ -43,7 +43,7 @@ DiDaTask DiDaTask::fromJson(const QJsonObject &jsonObj) {
     task.setModifiedTime(QDateTime::fromString(jsonObj.value("modifiedTime").toString(), "yyyy-MM-ddTHH:mm:ss.fff+0000"));
     task.setEtag(jsonObj.value("etag").toString());
     task.setDeleted(jsonObj.value("deleted").toInt());
-    task.setCreatedTime(QDateTime::fromString(jsonObj.value("createdTime").toString(), "yyyy-MM-ddTHH:mm:ss.fff+0000"));
+    task.setCreatedTime(QDateTime::fromString(jsonObj.value("createdTime").toString(), "yyyy-MM-ddTHH:mm:ss.zzz+0000"));
     task.setCreator(jsonObj.value("creator").toInt());
 
     // tags
@@ -56,11 +56,11 @@ DiDaTask DiDaTask::fromJson(const QJsonObject &jsonObj) {
     task.setCommentCount(jsonObj.value("commentCount").toInt());
 
     if (jsonObj.contains("startDate")) {
-        task.startDate = QDateTime(QDateTime::fromString(jsonObj.value("startDate").toString(), "yyyy-MM-ddTHH:mm:ss.fff+0000"));
+        task.startDate = QDateTime::fromString(jsonObj.value("startDate").toString(), "yyyy-MM-ddTHH:mm:ss.zzz+0000");
     }
 
     if (jsonObj.contains("dueDate")) {
-        task.dueDate = QDateTime(QDateTime::fromString(jsonObj.value("dueDate").toString(), "yyyy-MM-ddTHH:mm:ss.fff+0000"));
+        task.dueDate = QDateTime::fromString(jsonObj.value("dueDate").toString(), "yyyy-MM-ddTHH:mm:ss.zzz+0000");
     }
 
     return task;

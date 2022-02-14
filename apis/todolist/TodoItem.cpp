@@ -8,8 +8,8 @@ const QString &TodoItem::getId() const {
     return id;
 }
 
-TodoItem::TodoItem(const QString &id, const QString &title, int priority, QDateTime startDate)
-    : id(id), title(title), priority(priority), startDate(startDate) {
+TodoItem::TodoItem(const QString &id, const QString &title, int priority, QDateTime startDate, QDateTime dueDate)
+    : id(id), title(title), priority(priority), startDate(startDate), dueDate(dueDate) {
 }
 
 const QString &TodoItem::getTitle() const {
@@ -22,4 +22,8 @@ int TodoItem::getPriority() const {
 
 const std::optional<QDateTime> &TodoItem::getStartDate() const {
     return startDate;
+}
+
+const std::optional<QDateTime> &TodoItem::getDueDate() const {
+    return dueDate;
 }

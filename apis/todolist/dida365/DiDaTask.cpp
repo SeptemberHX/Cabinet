@@ -9,7 +9,7 @@
 DiDaReminder::DiDaReminder(const QString &id, const QString &trigger) : id(id), trigger(trigger) {}
 
 TodoItem DiDaTask::convertItem() {
-    return TodoItem(this->id, this->title, this->priority, this->startDate.value());
+    return TodoItem(this->id, this->title, this->priority, this->startDate.value(), this->dueDate.value());
 }
 
 DiDaTask DiDaTask::fromJson(const QJsonObject &jsonObj) {

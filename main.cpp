@@ -4,10 +4,13 @@
 #include <QLocale>
 #include <QTranslator>
 #include "CabinetSettings.h"
+#include "items/CabinetDB.h"
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
+
+    CabinetDB::inst();
 
     QTranslator translator;
     const QStringList uiLanguages = QLocale::system().uiLanguages();

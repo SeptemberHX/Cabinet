@@ -11,7 +11,7 @@
 class TodoItem {
 
 public:
-    TodoItem(const QString &id, const QString &title, int priority, QDateTime startDate);
+    TodoItem(const QString &id, const QString &title, int priority, QDateTime startDate, QDateTime dueDate);
 
     const QString &getId() const;
 
@@ -21,11 +21,14 @@ public:
 
     const std::optional<QDateTime> &getStartDate() const;
 
+    const std::optional<QDateTime> &getDueDate() const;
+
 private:
     QString id;
     QString title;
     int priority;
     std::optional<QDateTime> startDate;
+    std::optional<QDateTime> dueDate;
 };
 
 

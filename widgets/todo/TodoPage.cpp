@@ -59,12 +59,17 @@ void TodoPage::loadTodoItems(const QList<TodoItem> &todoItems) {
     for (auto const &item : this->todoItems) {
         // add group title
         if (firstEle) {
-            if (item.getStartDate()->date() < QDate::currentDate()) {
+            if (item.getStartDate()->date() < QDate::currentDate() &&
+                    (item.getDueDate() && item.getDueDate()->date() < QDate::currentDate())) {
                 QListWidgetItem *groupItem = new QListWidgetItem("已过期", ui->listWidget);
                 ui->listWidget->addItem(groupItem);
                 groupItem->setFlags(Qt::NoItemFlags);
-            } else {
+            } else if (item.getStartDate()->date() > QDate::currentDate()) {
                 QListWidgetItem *groupItem = new QListWidgetItem(item.getStartDate()->toString("dddd,MMMM dd"), ui->listWidget);
+                groupItem->setFlags(Qt::NoItemFlags);
+                ui->listWidget->addItem(groupItem);
+            } else {
+                QListWidgetItem *groupItem = new QListWidgetItem(tr("今天"), ui->listWidget);
                 groupItem->setFlags(Qt::NoItemFlags);
                 ui->listWidget->addItem(groupItem);
             }
